@@ -8,7 +8,7 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
 }) {
-  return <FontAwesome size={24} {...props} style={{ color: "#1BC464" }} />;
+  return <FontAwesome size={24} {...props} style={{ color: props.color }} />;
 }
 
 function TabLayout() {
@@ -22,7 +22,7 @@ function TabLayout() {
           tabBarStyle: {
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
-            paddingTop: 10,
+            paddingTop: 8,
           },
           headerShown: false,
         }}
