@@ -3,8 +3,12 @@ import React from "react";
 import { PRODUCTS } from "@/assets/products";
 import ProductItem from "@/components/ProductItem";
 import ListHeader from "@/components/ListHeader";
+import { useAuth } from "@/lib/providers/auth-provider";
 
 export default function Home() {
+  const { user } = useAuth();
+  console.log("123", user);
+
   return (
     <View>
       <FlatList

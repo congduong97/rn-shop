@@ -12,6 +12,7 @@ import { Link } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
 import { CATEGORIES } from "@/assets/categories";
 import { useCartStore } from "@/store/cart-store";
+import { supabase } from "@/lib/supabase";
 
 const ListHeader = () => {
   const { getItemCount } = useCartStore();
@@ -46,7 +47,12 @@ const ListHeader = () => {
                 )}
               </Pressable>
             </Link>
-            <TouchableOpacity style={styles.signOutButton}>
+            <TouchableOpacity
+              style={styles.signOutButton}
+              onPress={async () => {
+                await supabase.auth.signOut();
+              }}
+            >
               <FontAwesome name="sign-out" size={25} color={"red"} />
             </TouchableOpacity>
           </View>
